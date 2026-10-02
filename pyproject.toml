@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "curvecodec"
+version = "0.2.0"
+description = "Skeletal animation compression under ACL's error contract with a learned integer entropy model"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.9"
+dependencies = ["numpy>=1.21"]
+
+[project.optional-dependencies]
+train = ["torch>=2.1"]
+test = ["pytest"]
+
+[project.scripts]
+curvecodec = "curvecodec.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["curvecodec*"]
+
+[tool.setuptools.package-data]
+curvecodec = ["data/*", "fast/*.c", "fast/*.h", "fast/*.cu"]

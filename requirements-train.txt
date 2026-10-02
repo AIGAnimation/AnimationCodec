@@ -1,0 +1,4 @@
+# training the entropy model (curvecodec.train) and the release tests
+-r requirements.txt
+torch>=2.1
+pytest

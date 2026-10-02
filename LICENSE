@@ -1,0 +1,27 @@
+CurveCodec License — Academic and Non-Commercial Use
+
+Copyright (c) 2026 Mingyi Shi, Huancheng Lin, Xuelin Chen, Taku Komura
+
+This license covers the source code, the model weights (curvecodec/data/) and the documentation in this repository
+(together, the "Software"). It does not cover the third-party components listed in THIRD_PARTY_NOTICES.md, which keep
+their own licenses.
+
+1. Grant. Permission is granted, free of charge, to use, copy, modify and distribute the Software, and works derived
+   from it, for non-commercial purposes only: academic research, teaching, and personal or non-profit projects.
+
+2. Commercial use. Any commercial use requires a separate written license from the authors. This includes use in or
+   with a commercial product or service, internal use by a for-profit organization, and distribution for a fee.
+   To ask for one, contact: Mingyi Shi (myshi@cs.hku.hk) and Taku Komura (taku@hku.hk).
+
+3. Conditions. Every copy or substantial portion of the Software, and every derived work, must keep this license
+   text and the copyright notice above. Publications that use the Software or results obtained with it should cite
+   the CurveCodec paper (see README.md).
+
+4. Training data. The model weights were trained on third-party motion datasets, some of which are licensed for
+   non-commercial research only. You are responsible for complying with those terms.
+
+5. No warranty. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+   LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT
+   SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+   CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+   THE SOFTWARE.

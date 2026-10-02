@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.DS_Store
+*.egg-info/
+# build products
+cpp/build/
+curvecodec/fast/_build/
+# fetched by scripts/fetch_acl.sh
+third_party/acl/
+# local data and results
+*.cc2
+report.csv
+report.md
