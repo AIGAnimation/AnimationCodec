@@ -35,24 +35,20 @@ test set, the average at this precision is about 100× smaller than float32.</su
 - **[2026-10-02]** The [live demo](https://playground.rubbly.cn/codec/) is online: upload a BVH and compare against ACL. 🎮
 
 
-## Why compression
+## Why study compression at first?
 
-- **Most of a motion clip is implied by the body.** A clip stores every joint's local transform at every frame. A
-  person performing an action rarely attends to how each joint gets from one place to the next: the body, with its
-  morphology and dynamics, produces most of those trajectories.
-- **Compression is a principled way to find what the motion itself must convey.** What a good codec still has to send
-  is the decision; what it can drop is what the body already implies.
-- **A production codec is where this question must be answered with an error bound, for any skeleton.** That is why
-  we measure ourselves against [ACL](https://github.com/nfrechette/acl), the Animation Compression Library of modern
-  game engines and the production reference for what an error bound means on arbitrary rigs.
-
-We then ask where the redundancy of skeletal motion lies, and which part of a codec a learned model should take over:
-
-1. **Prediction.** At tight precision, the largest saving comes from predicting each quantized curve from its own past.
-2. **Choosing what not to code.** The second saving is deciding, per joint and in closed loop through the hierarchy,
-   which samples *not* to code. It grows with looser precision until it matches prediction at 1 cm.
-3. **The network belongs in the entropy model.** On the gaps such an encoder leaves, none of the learned interpolators
-   we tried paid for itself. What a network does learn is the distribution of the residuals the codec must send.
+- **Motion data is highly redundant.** A clip stores every joint's local transform at every frame, yet a person
+  performing an action rarely attends to how each joint gets from one place to the next: the trajectories are largely
+  produced by a strong prior, the body itself. Spending more effort and computation on generating these curves does
+  little for understanding behaviour or action.
+- **Compression is a principled way to learn what matters.** Embodied intelligence works the same way: an agent
+  decides what to do, and its body decides most of how. A model of motion should spend its capacity on the decisions,
+  not on the kinematics the body already implies. Compression separates the two: what a codec must still send is the
+  decision; what it can drop is the body.
+- **We want a representation general enough to model the dynamics of motion.** If the body is only the prior, the
+  representation should not be tied to one body. Hierarchical skeleton representations bake a topology into the data,
+  so every rig needs its own model. CurveCodec: one model serves any rig, and transfers without retraining to a
+  species it has never seen.
 
 CurveCodec is built on these three answers.
 
@@ -85,7 +81,8 @@ at 0.3 cm and **0.07×** at 1 cm.
 </p>
 
 The two codecs serve different goals, and CurveCodec is not a replacement for ACL. ACL is built for runtime: it is
-stateless, decompresses in place, and samples any pose at random with minimal memory traffic. CurveCodec corrects
+stateless, keeps the clip compressed in memory and decompresses only the poses a frame needs, and samples any pose at
+random with minimal memory traffic. CurveCodec corrects
 its encoder with error feedback through forward kinematics. Its stream is entropy-coded and decoded once per clip. It
 is meant for storing and streaming whole clips, and for asking what motion data really contains.
 
@@ -199,6 +196,18 @@ every dataset with its download link. We do not redistribute motion data.
   doi       = {10.1145/3829340.3842192}
 }
 ```
+
+## Acknowledgements
+
+We thank Nicholas Frechette, the author of [ACL](https://github.com/nfrechette/acl), for detailed discussions of ACL's
+design goals and technical details. We thank Jun Xing, Tianshu Zhang and
+Zhixin Piao for the very early discussions on motion compression.
+
+The characters in the images above are third-party assets: the animals come from the Truebones Zoo pack
+(truebones.com), the human is the Geno character of the ZeroEGGS dataset (Ubisoft La Forge), and the robot is a
+Unitree Go2 model (Unitree Robotics). The live demo also shows Sketchfab models under CC BY 4.0; they are credited in the
+demo and on the [project page](https://rubbly.cn/publications/curvecodec/#ack), and listed in
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 ## License
 
