@@ -5,6 +5,7 @@
 <p align="center"><b>SIGGRAPH Asia 2026</b></p>
 
 <p align="center">
+  <a href="https://arxiv.org/abs/2610.04211"><img alt="arXiv" src="https://img.shields.io/badge/arXiv-2610.04211-B31B1B?style=for-the-badge&logo=arxiv&logoColor=white"></a>
   <a href="https://rubbly.cn/publications/curvecodec/"><img alt="Project Page" src="https://img.shields.io/badge/Project_Page-0F766E?style=for-the-badge&logo=githubpages&logoColor=white"></a>
   <a href="https://playground.rubbly.cn/codec/"><img alt="Live Demo" src="https://img.shields.io/badge/Live_Demo-0EA5E9?style=for-the-badge&logo=threedotjs&logoColor=white"></a>
   <a href="https://doi.org/10.1145/3829340.3842192"><img alt="SIGGRAPH Asia 2026" src="https://img.shields.io/badge/SIGGRAPH_Asia-2026-B31B1B?style=for-the-badge&logo=acm&logoColor=white"></a>
@@ -173,15 +174,19 @@ every dataset with its download link. We do not redistribute motion data.
 
 | version | | |
 |---|---|---|
-| **2.0** CurveCodec 2 (this repository) | **The same curve space, expressed with a more stable structure: comparable to ACL in both mean and worst-case error.** Closed-loop quantization and rate–distortion-selected keys are verified through the skeleton, and a small learned entropy model, whose integer inference is bit-exact across platforms, codes what remains. Every decoded clip is checked against its error contract. | [Project page](https://rubbly.cn/publications/curvecodec/) · paper soon |
+| **2.0** CurveCodec 2 (this repository) | **The same curve space, expressed with a more stable structure: comparable to ACL in both mean and worst-case error.** Closed-loop quantization and rate–distortion-selected keys are verified through the skeleton, and a small learned entropy model, whose integer inference is bit-exact across platforms, codes what remains. Every decoded clip is checked against its error contract. | [Project page](https://rubbly.cn/publications/curvecodec/) · [arXiv](https://arxiv.org/abs/2610.04211) |
 | **1.0** CurveCodec, SIGGRAPH Asia 2026 | **In this work we first found that curve space is general enough: one learned model codes the joint curves of any skeleton.** It reconstructed each curve from sparse anchors with a learned prior and matched ACL's mean error, but its worst-case error was not stable enough and its encoding and decoding were less efficient, so version 2 replaces it. | [PDF](https://rubbly.cn/publications/curvecodec/files/curvecodec_siga2026.pdf) · [DOI](https://doi.org/10.1145/3829340.3842192) |
 
 ```bibtex
 @article{shi2026codec2,
-  title   = {CurveCodec 2: Skeleton-Agnostic Animation Compression
-             with a Learned Entropy Model},
-  author  = {Shi, Mingyi and Lin, Huancheng and Chen, Xuelin and Komura, Taku},
-  year    = {2026}
+  title         = {CurveCodec 2: Skeleton-Agnostic Animation Compression
+                   with a Learned Entropy Model},
+  author        = {Shi, Mingyi and Lin, Huancheng and Chen, Xuelin and Komura, Taku},
+  journal       = {arXiv preprint arXiv:2610.04211},
+  year          = {2026},
+  eprint        = {2610.04211},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.GR}
 }
 
 @inproceedings{shi2026codec,
