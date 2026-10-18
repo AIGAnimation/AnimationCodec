@@ -1,6 +1,6 @@
-<h1 align="center">CurveCodec <sub><sup>v0.2.0</sup></sub></h1>
+<h1 align="center">CurveCodec</h1>
 
-<p align="center"><b>Skeleton-agnostic animation compression with a learned entropy model</b></p>
+<p align="center"><b>Neural Skeletal Animation Compression Library</b></p>
 
 <p align="center"><b>SIGGRAPH Asia 2026</b></p>
 
@@ -32,8 +32,9 @@ test set, the average at this precision is about 100× smaller than float32.</su
 
 ## News
 
-- **[2026-10-02]** CurveCodec v0.2.0: code, model weights and the train/test split are released. 
-- **[2026-10-02]** The [live demo](https://playground.rubbly.cn/codec/) is online: upload a BVH and compare against ACL. 🎮
+- **[2026-10-02]** The [live demo](https://playground.rubbly.cn/codec/) is online: upload a BVH and compare against ACL. 
+- **[2026-10-02]** We release v0.2.0 with improved performance inboth mean and worst-case error. The previous version 0.1.0 with code and model weights was archived on [release](https://github.com/AIGAnimation/AnimationCodec/releases) page.
+- **[2026-10-02]** We are presenting CurveCodec at SIGGRAPH Asia 2026 (Dec 2–4, Kuala Lumpur, Malaysia). 
 
 
 ## Why study compression at first?
@@ -174,8 +175,8 @@ every dataset with its download link. We do not redistribute motion data.
 
 | version | | |
 |---|---|---|
-| **2.0** CurveCodec 2 (this repository) | **The same curve space, expressed with a more stable structure: comparable to ACL in both mean and worst-case error.** Closed-loop quantization and rate–distortion-selected keys are verified through the skeleton, and a small learned entropy model, whose integer inference is bit-exact across platforms, codes what remains. Every decoded clip is checked against its error contract. | [Project page](https://rubbly.cn/publications/curvecodec/) · [arXiv](https://arxiv.org/abs/2610.04211) |
-| **1.0** CurveCodec, SIGGRAPH Asia 2026 | **In this work we first found that curve space is general enough: one learned model codes the joint curves of any skeleton.** It reconstructed each curve from sparse anchors with a learned prior and matched ACL's mean error. This latest version is the actively maintained successor to the original SIGGRAPH Asia 2026 implementation. It preserves the central research direction while introducing substantial improvements to the compression pipeline. | [PDF](https://rubbly.cn/publications/curvecodec/files/curvecodec_siga2026.pdf) · [DOI](https://doi.org/10.1145/3829340.3842192) |
+| **0.2.0** Latest | **The same curve space, expressed with a more stable structure: comparable to ACL in both mean and worst-case error.** Closed-loop quantization and rate–distortion-selected keys are verified through the skeleton, and a small learned entropy model, whose integer inference is bit-exact across platforms, codes what remains. Every decoded clip is checked against its error contract. | [Release](https://github.com/AIGAnimation/AnimationCodec/releases/tag/v0.2.0) · [Project page](https://rubbly.cn/publications/curvecodec/) · [arXiv](https://arxiv.org/abs/2610.04211) |
+| **0.1.0** | **In this version we first found that curve space is general enough: one learned model codes the joint curves of any skeleton.** It reconstructed each curve from sparse anchors with a learned prior and matched ACL's mean error.  | [Release](https://github.com/AIGAnimation/AnimationCodec/releases/tag/v0.1.0) · [PDF](https://rubbly.cn/publications/curvecodec/files/curvecodec_siga2026.pdf) · [DOI](https://doi.org/10.1145/3829340.3842192) |
 
 ```bibtex
 @article{shi2026codec2,
